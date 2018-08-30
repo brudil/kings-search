@@ -1,0 +1,36 @@
+{
+  "name": "kings-search-frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "babel-plugin-emotion": "^9.2.8",
+    "emotion": "^9.2.8",
+    "parcel-bundler": "^1.9.7",
+    "prettier": "^1.14.2",
+    "qs": "^6.5.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-emotion": "^9.2.8",
+    "react-fns": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.4.13",
+    "@types/react-dom": "^16.0.7",
+    "typescript": "^3.0.3"
+  },
+  "scripts": {
+    "format": "prettier \"src/**/*.{ts,tsx}\" --write"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "arrowParens": "always"
+  }
+}
