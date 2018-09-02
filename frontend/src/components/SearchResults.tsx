@@ -14,7 +14,8 @@ export const List = styled('ul')`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-
+  justify-content: center;
+  
   li {
     margin: 1rem;
   }
@@ -28,13 +29,13 @@ export const SearchResults: React.SFC<SearchResultsProps> = ({ data }) =>
   !data ? null : (
     <Container>
       <List>
-        {data.data.top.map((id: string) => (
+        {data.top.map((id: string) => (
           <SearchResultItem
             key={id}
-            title={data.data.results[id].title}
-            link={data.data.results[id].link}
-            description={data.data.results[id].description}
-            form={getForm(data.data.results[id])}
+            title={data.results[id].title}
+            link={data.results[id].link}
+            description={data.results[id].description}
+            form={getForm(data.results[id])}
           />
         ))}
       </List>
