@@ -88,7 +88,7 @@ export const MobileSearchResults: React.SFC<MobileSearchResultsProps> = ({
   }
 
   return (
-    <div>
+    <div className="isMobile">
       <Container>
         <div>
           <AreaTitle>Top results</AreaTitle>

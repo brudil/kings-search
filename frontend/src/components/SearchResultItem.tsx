@@ -48,7 +48,7 @@ export const Description = styled('div')`
   overflow: hidden;
   position: relative;
   flex-grow: 1;
-  max-height: 100px;
+  height: 100px;
   
   &::after {
     content: '';
@@ -56,7 +56,7 @@ export const Description = styled('div')`
     left: 0;
     right: 0;
     bottom: 0;
-    height: 100%;
+    height: 75%;
     background:   linear-gradient(
     to bottom,
     hsla(0, 0%, 100%, 0) 0%,
@@ -87,6 +87,10 @@ export const Form = styled('div')`
   padding: 0.3rem;
   text-transform: uppercase;
   font-size: 1.1rem;
+  
+  .isMobile & {
+    display: none;
+  }
 `;
 
 interface SearchResultItemProps {
