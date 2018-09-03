@@ -2,11 +2,11 @@ import React from 'react';
 import qs from 'qs';
 import { SearchInput } from './SearchInput';
 import { SearchResults } from './SearchResults';
-import styled, {css, cx} from 'react-emotion';
+import styled, { css, cx } from 'react-emotion';
 import { MobileSearchResults } from './MobileSearchResults';
 import { WindowSize } from 'react-fns';
 import { Loader } from './Loader';
-import {COLORS} from "../constants";
+import { COLORS } from '../constants';
 
 const SearchAppContainer = styled('div')`
   font-family: Roboto, sans-serif;
@@ -20,17 +20,17 @@ const loadingDimStyles = css`
 `;
 
 const welcomeTextStyles = css`
-    color: ${COLORS.PURPLE};
-    margin-top: 20vh;
-    font-size: 10vmin;
-    opacity: 1;
-    transition: margin-top ease 300ms, font-size ease 800ms, opacity ease 300ms;
-    
-    .SearchApp--search & {
-      margin-top: 0;
-      font-size: 0.4rem;
-      opacity: 0;
-    }
+  color: ${COLORS.PURPLE};
+  margin-top: 20vh;
+  font-size: 10vmin;
+  opacity: 1;
+  transition: margin-top ease 300ms, font-size ease 800ms, opacity ease 300ms;
+
+  .SearchApp--search & {
+    margin-top: 0;
+    font-size: 0.4rem;
+    opacity: 0;
+  }
 `;
 
 interface SearchAppProps {}
@@ -113,8 +113,8 @@ export class SearchApp extends React.Component<SearchAppProps, SearchAppState> {
                 queryCache: {
                   ...state.queryCache,
                   [query]: data,
-                }
-              }
+                },
+              };
             }
 
             return {
@@ -122,15 +122,15 @@ export class SearchApp extends React.Component<SearchAppProps, SearchAppState> {
               queryCache: {
                 ...state.queryCache,
                 [query]: data,
-              }
-            }
+              },
+            };
           });
         });
     } else {
       this.setState((state) => ({
         latestData: state.queryCache[query],
         isLoading: false,
-      }))
+      }));
     }
   }
 
@@ -148,23 +148,29 @@ export class SearchApp extends React.Component<SearchAppProps, SearchAppState> {
       <div>
         <Loader isLoading={isLoading} />
 
-
         <div className={cx({ [loadingDimStyles]: isLoading })}>
-          {!!latestData && (width > 768 ? (
-            <SearchResults data={latestData} />
-          ) : (
-            <MobileSearchResults data={latestData} />
-          ))}
+          {!!latestData &&
+            (width > 768 ? (
+              <SearchResults data={latestData} />
+            ) : (
+              <MobileSearchResults data={latestData} />
+            ))}
         </div>
       </div>
-    )
+    );
   }
 
   render() {
     return (
-      <SearchAppContainer className={cx({ 'SearchApp--search': !this.state.initialView })}>
+      <SearchAppContainer
+        className={cx({ 'SearchApp--search': !this.state.initialView })}
+      >
         <h1 className={welcomeTextStyles}>Looking for something?</h1>
-        <SearchInput onChange={this.handleInput} value={this.state.query} autoFocus />
+        <SearchInput
+          onChange={this.handleInput}
+          value={this.state.query}
+          autoFocus
+        />
 
         <WindowSize render={this.renderContent.bind(this)} />
       </SearchAppContainer>

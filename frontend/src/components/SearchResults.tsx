@@ -15,7 +15,7 @@ export const List = styled('ul')`
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  
+
   li {
     margin: 1rem;
   }

@@ -3,4 +3,3 @@ export const COLORS = {
   PURPLE: '#512971',
   GREY: '#919191',
 };
-
