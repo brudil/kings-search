@@ -53,6 +53,7 @@ const HList = styled('ul')`
   width: 100%;
   box-sizing: border-box;
   overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
   margin: 0;
   position: relative;
   padding: 0;
