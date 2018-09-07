@@ -7,6 +7,8 @@ import { MobileSearchResults } from './MobileSearchResults';
 import { WindowSize } from 'react-fns';
 import { Loader } from './Loader';
 import { COLORS } from '../constants';
+import {Filtering} from "./Filtering";
+import {FilterMap, SearchResultForm} from "../types";
 
 const SearchAppContainer = styled('div')`
   font-family: Roboto, sans-serif;
@@ -51,6 +53,7 @@ interface SearchAppState {
   queryCache: {
     [query: string]: SearchQueryPayload; // fix
   };
+  filterMap: FilterMap;
 }
 
 export class SearchApp extends React.Component<SearchAppProps, SearchAppState> {
@@ -66,10 +69,17 @@ export class SearchApp extends React.Component<SearchAppProps, SearchAppState> {
       latestData: null,
       isLoading: false,
       initialView: query === '',
+      filterMap: {
+        [SearchResultForm.Event]: true,
+        [SearchResultForm.StudentGroup]: true,
+        [SearchResultForm.News]: true,
+        [SearchResultForm.Page]: true,
+      }
     };
 
     this.handleInput = this.handleInput.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleFilterToggle = this.handleFilterToggle.bind(this);
   }
 
   handleInput(e: React.ChangeEvent<HTMLInputElement>) {
@@ -134,6 +144,16 @@ export class SearchApp extends React.Component<SearchAppProps, SearchAppState> {
     }
   }
 
+  handleFilterToggle(filterKey: string) {
+    this.setState(state => ({
+      ...state,
+      filterMap: {
+        ...state.filterMap,
+        [filterKey]: !state.filterMap[filterKey]
+      }
+    }))
+  }
+
   componentDidMount() {
     const { query } = this.state;
     if (query !== '') {
@@ -151,7 +171,7 @@ export class SearchApp extends React.Component<SearchAppProps, SearchAppState> {
         <div className={cx({ [loadingDimStyles]: isLoading })}>
           {!!latestData &&
             (width > 768 ? (
-              <SearchResults data={latestData} />
+              <SearchResults data={latestData} filterMap={this.state.filterMap} />
             ) : (
               <MobileSearchResults data={latestData} />
             ))}
@@ -170,6 +190,15 @@ export class SearchApp extends React.Component<SearchAppProps, SearchAppState> {
           onChange={this.handleInput}
           value={this.state.query}
           autoFocus
+        />
+
+        <Filtering filters={{
+          [SearchResultForm.Event]: 'Events',
+          [SearchResultForm.StudentGroup]: 'Student Groups',
+          [SearchResultForm.News]: 'News',
+          [SearchResultForm.Page]: 'Pages',
+        }} filterMap={this.state.filterMap}
+        toggle={this.handleFilterToggle}
         />
 
         <WindowSize render={this.renderContent.bind(this)} />

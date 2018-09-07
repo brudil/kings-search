@@ -10,3 +10,8 @@ export enum SearchResultForm {
   StudentGroup,
   Page,
 }
+
+
+export interface FilterMap {
+  [key: string]: boolean;
+}

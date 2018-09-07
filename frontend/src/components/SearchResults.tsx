@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'react-emotion';
 import { SearchResultItem } from './SearchResultItem';
 import { getForm } from '../utils';
+import {FilterMap} from "../types";
 
 export const Container = styled('div')`
   font-size: 22px;
@@ -23,13 +24,14 @@ export const List = styled('ul')`
 
 interface SearchResultsProps {
   data: any;
+  filterMap: FilterMap;
 }
 
-export const SearchResults: React.SFC<SearchResultsProps> = ({ data }) =>
+export const SearchResults: React.SFC<SearchResultsProps> = ({ data, filterMap }) =>
   !data ? null : (
     <Container>
       <List>
-        {data.top.map((id: string) => (
+        {data.top.filter((id: string) => filterMap[getForm(data.results[id])]).map((id: string) => (
           <SearchResultItem
             key={id}
             title={data.results[id].title}
