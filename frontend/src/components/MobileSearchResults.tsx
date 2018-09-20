@@ -3,11 +3,11 @@ import { SearchResultItem } from './SearchResultItem';
 import { Container } from './SearchResults';
 import styled from 'react-emotion';
 import { getForm } from '../utils';
-import { COLORS } from '../constants';
+import {COLORS, SIZES} from '../constants';
 
 const AreaTitle = styled('h2')`
   text-align: left;
-  font-size: 1rem;
+  font-size: ${SIZES.E3};
   color: ${COLORS.GREY};
 `;
 
@@ -57,7 +57,7 @@ const HList = styled('ul')`
   padding: 0;
 
   li {
-    margin-right: 1rem;
+    margin-right: ${SIZES.E3};
 
     &:last-child {
       padding-right: 80px;
@@ -84,6 +84,16 @@ export const MobileSearchResults: React.SFC<MobileSearchResultsProps> = ({
 }) => {
   if (!data) {
     return null;
+  }
+
+  if (data.top.length >= 0) {
+    return (
+      <div className="isMobile">
+        <Container>
+          <h2>No results found!</h2>
+        </Container>
+      </div>
+    )
   }
 
   return (

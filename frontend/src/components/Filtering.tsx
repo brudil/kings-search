@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, {css} from "react-emotion";
-import {COLORS} from "../constants";
+import {COLORS, SIZES} from "../constants";
 import {FilterMap} from "../types";
 
 const listStyles = css({
@@ -13,16 +13,16 @@ const listStyles = css({
   display: 'none',
   justifyContent: "center",
   '& li ': {
-    padding: '1rem',
+    padding: SIZES.E3,
   }
 });
 
 const Button = styled('button')<{ active: boolean }>(({ active }) => ({
-  padding: '0.4rem',
+  padding: SIZES.E1,
   color: active ? '#fff' : COLORS.PURPLE,
   backgroundColor: active ? COLORS.PURPLE : '#fff',
   border: `3px solid ${COLORS.PURPLE}`,
-  fontSize: '1rem',
+  fontSize: SIZES.E3,
 }));
 
 interface FilteringProps {

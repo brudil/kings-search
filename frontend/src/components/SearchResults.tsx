@@ -3,6 +3,7 @@ import styled from 'react-emotion';
 import { SearchResultItem } from './SearchResultItem';
 import { getForm } from '../utils';
 import {FilterMap} from "../types";
+import {SIZES} from "../constants";
 
 export const Container = styled('div')`
   font-size: 22px;
@@ -18,7 +19,7 @@ export const List = styled('ul')`
   justify-content: center;
 
   li {
-    margin: 1rem;
+    margin: ${SIZES.E3};
   }
 `;
 
@@ -27,8 +28,20 @@ interface SearchResultsProps {
   filterMap: FilterMap;
 }
 
-export const SearchResults: React.SFC<SearchResultsProps> = ({ data, filterMap }) =>
-  !data ? null : (
+export const SearchResults: React.SFC<SearchResultsProps> = ({ data, filterMap }) => {
+  if (!data) {
+    return null;
+  }
+
+  if (data.top.length >= 0) {
+    return (
+      <Container>
+        <h2>No results found!</h2>
+      </Container>
+    )
+  }
+
+  return (
     <Container>
       <List>
         {data.top.filter((id: string) => filterMap[getForm(data.results[id])]).map((id: string) => (
@@ -43,3 +56,4 @@ export const SearchResults: React.SFC<SearchResultsProps> = ({ data, filterMap }
       </List>
     </Container>
   );
+};

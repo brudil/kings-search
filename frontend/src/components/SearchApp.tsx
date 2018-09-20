@@ -6,7 +6,7 @@ import styled, { css, cx } from 'react-emotion';
 import { MobileSearchResults } from './MobileSearchResults';
 import { WindowSize } from 'react-fns';
 import { Loader } from './Loader';
-import { COLORS } from '../constants';
+import {COLORS, SIZES} from '../constants';
 import {Filtering} from "./Filtering";
 import {FilterMap, SearchResultForm} from "../types";
 
@@ -30,7 +30,7 @@ const welcomeTextStyles = css`
 
   .SearchApp--search & {
     margin-top: 0;
-    font-size: 0.4rem;
+    font-size: ${SIZES.E1};
     opacity: 0;
   }
 `;

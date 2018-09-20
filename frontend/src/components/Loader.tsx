@@ -1,12 +1,12 @@
 import React from 'react';
 import { css } from 'emotion';
-import { COLORS } from '../constants';
+import {COLORS, SIZES} from '../constants';
 
 const loadingStyle = css({
   textAlign: 'center',
-  fontSize: '1rem',
+  fontSize: SIZES.E3,
   color: COLORS.GREY,
-  padding: '0.4rem 0',
+  padding: `${SIZES.E1} 0`,
 });
 
 export const Loader: React.SFC<{ isLoading: boolean }> = ({ isLoading }) => (

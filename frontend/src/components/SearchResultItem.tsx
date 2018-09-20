@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'react-emotion';
 import { SearchResultForm } from '../types';
 import { formLangs } from '../utils';
-import { COLORS } from '../constants';
+import {COLORS, SIZES} from '../constants';
 
 export const Container = styled('li')`
   width: 220px;
@@ -25,7 +25,7 @@ export const ContainerLink = styled('a')`
 
 export const InfoBox = styled('div')`
   background-color: #ffffff;
-  padding: 0.4rem;
+  padding: ${SIZES.E1};
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -35,13 +35,13 @@ export const Title = styled('h3')`
   color: ${COLORS.TEAL};
   text-align: center;
   box-sizing: border-box;
-  font-size: 1.2rem;
-  margin: 0 0 0.4rem;
+  font-size: ${SIZES.E4};
+  margin: 0 0 ${SIZES.E4};
   word-wrap: break-word;
 `;
 
 export const Description = styled('div')`
-  font-size: 0.9rem;
+  font-size: ${SIZES.E2};
   color: #000000;
   box-sizing: border-box;
   margin: 0;
@@ -83,9 +83,9 @@ export const Form = styled('div')`
   color: #ffffff;
   text-align: center;
   box-sizing: border-box;
-  padding: 0.3rem;
+  padding: ${SIZES.E1};
   text-transform: uppercase;
-  font-size: 1.1rem;
+  font-size: ${SIZES.E4};
 
   .isMobile & {
     display: none;
