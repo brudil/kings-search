@@ -11,7 +11,6 @@ import {Filtering} from "./Filtering";
 import {FilterMap, SearchResultForm} from "../types";
 
 const SearchAppContainer = styled('div')`
-  font-family: Roboto, sans-serif;
   text-align: center;
   max-width: 1280px;
   margin: 0 auto;
