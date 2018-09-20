@@ -86,7 +86,7 @@ export const MobileSearchResults: React.SFC<MobileSearchResultsProps> = ({
     return null;
   }
 
-  if (data.top.length >= 0) {
+  if (data.top.length <= 0) {
     return (
       <div className="isMobile">
         <Container>

@@ -33,7 +33,7 @@ export const SearchResults: React.SFC<SearchResultsProps> = ({ data, filterMap }
     return null;
   }
 
-  if (data.top.length >= 0) {
+  if (data.top.length <= 0) {
     return (
       <Container>
         <h2>No results found!</h2>
