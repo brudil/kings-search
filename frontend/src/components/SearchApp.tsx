@@ -14,6 +14,8 @@ const SearchAppContainer = styled('div')`
   text-align: center;
   max-width: 1280px;
   margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 16px 32px;
 `;
 
 const loadingDimStyles = css`
@@ -22,8 +24,9 @@ const loadingDimStyles = css`
 
 const welcomeTextStyles = css`
   color: ${COLORS.PURPLE};
-  margin-top: 20vh;
-  font-size: 10vmin;
+  margin-top: 8vh;
+  margin-bottom: 8vh;
+  font-size: 32px;
   opacity: 1;
   transition: margin-top ease 300ms, font-size ease 800ms, opacity ease 300ms;
 
@@ -31,6 +34,10 @@ const welcomeTextStyles = css`
     margin-top: 0;
     font-size: ${SIZES.E1};
     opacity: 0;
+  }
+  
+  @media (min-width: 768px) {
+    font-size: 8vmin;
   }
 `;
 
