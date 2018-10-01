@@ -37,7 +37,7 @@ export const Filtering: React.SFC<FilteringProps> = ({ filters, filterMap, toggl
   <ul className={listStyles}>
     {Object.keys(filters).map((key) => (
       <li key={key}>
-        <Button onClick={() => toggle(key)} active={filterMap[key]}>
+        <Button onClick={() => toggle(key)} active={filterMap[key]} type="button">
           {filters[key]}
         </Button>
       </li>
