@@ -8,7 +8,7 @@
     "emotion": "^9.2.8",
     "parcel-bundler": "^1.9.7",
     "prettier": "^1.14.2",
-    "qs": "^6.5.2",
+    "qs": "^6.5.3",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-emotion": "^9.2.8",
